@@ -1,0 +1,64 @@
+{First, add the repository key to the system}
+
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+{When the key is added, the system will return OK. Next, append the Debian package repository address to the server’s sources.list:}
+
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+(When both of these are in place, run update so that apt will use the new repository:)
+
+sudo apt update
+
+(Finally, install Jenkins and its dependencies:)
+
+sudo apt install jenkins
+
+(Let’s start Jenkins using systemctl:)
+
+sudo systemctl start jenkins
+
+(Since systemctl doesn’t display output, you can use its status command to verify that Jenkins started successfully:)
+
+sudo systemctl status jenkins
+
+(If everything went well, the beginning of the output should show that the service is active and configured to start at boot:)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+sudo apt update
+
+sudo apt install jenkins
+
+sudo systemctl start jenkins
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(In the terminal window, use the cat command to display the password:)
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
